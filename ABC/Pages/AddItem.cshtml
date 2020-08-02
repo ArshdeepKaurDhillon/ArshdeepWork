@@ -1,0 +1,129 @@
+﻿@page
+@model AddItemModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AddItem</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+         function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.ItemCode.value;
+            var length = aValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('ItemCode is required')
+            }
+             var bValue = aForm.Description.value;
+            var length = bValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('Description is required')
+            }
+
+            var cValue = aForm.UnitPrice.value;
+            var length = cValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('UnitPrice is required')
+            }
+
+           
+
+            return isValid;
+        }
+
+       
+    </script>
+</head>
+
+
+<body>
+    <header>Add Item</header>
+    <main>
+        <div>
+            <form name="AddItem" method="post" id="AddItem" onsubmit="return isValid(window.document.AddItem);">
+                <table border="1" align="center">
+                    <tr>
+                        <td>Item Code:</td>
+                        <td>
+                            <input asp-for="ItemCode" id="Text1" type="text" name="ItemCode" value="@Model.ItemCode" />
+                            <span asp-validation-for="ItemCode"></span>
+
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Description" value="@Model.Description" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Quantity" value="@Model.Quantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>UnitPrice:</td>
+                        <td>
+                            <input id="Text2" type="text" name="UnitPrice" value="@Model.UnitPrice" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Flag:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Flag" value="@Model.Flag" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+
+                        <td>
+                            <input type="reset" value="Reset" />
+
+                        </td>
+
+                    </tr>
+
+
+
+                </table>
+                @Model.Message
+            </form>
+        </div>
+    </main>
+    <footer>
+       
+    </footer>
+</body>
+
+
+</html>
+

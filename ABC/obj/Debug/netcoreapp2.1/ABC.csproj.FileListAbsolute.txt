@@ -1,0 +1,15 @@
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.csprojAssemblyReference.cache
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.AssemblyInfoInputs.cache
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.AssemblyInfo.cs
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.dll
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.pdb
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\ABC.deps.json
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\ABC.runtimeconfig.json
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\ABC.runtimeconfig.dev.json
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\ABC.dll
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\ABC.pdb
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\ArshRavi\source\repos\ABC\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.csproj.CoreCompileInputs.cache
+C:\Users\ArshRavi\source\repos\ABC\obj\Debug\netcoreapp2.1\ABC.genruntimeconfig.cache

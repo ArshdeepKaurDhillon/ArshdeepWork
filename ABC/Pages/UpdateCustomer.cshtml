@@ -1,0 +1,155 @@
+﻿@page
+@model UpdateCustomerModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Customer</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.CustomerName.value;
+            var length = aValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('CustomerName is required')
+            }
+             var bValue = aForm.Address.value;
+            var length = bValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('Address is required')
+            }
+
+            var cValue = aForm.City.value;
+            var length = cValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('City is required')
+            }
+
+           
+
+            var dValue = aForm.Province.value;
+            var length = dValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('Province is required')
+            }
+
+             var eValue = aForm.PostalCode.value;
+            var length = eValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('PostalCode is required')
+            }
+           
+            
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <header>Modify Customer</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="FindCustomer" method="post" id="FindCustomer" onsubmit="return isValid(window.document.FindCustomer);">
+                <table border="1" align="center">
+
+                    <tr>
+                        <td>CustomerName:</td>
+                        <td>
+                            <input id="Text2" type="text" name="CustomerName" value="@Model.CustomerName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindCustomer" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+
+            </form>
+
+            <form asp-page-handler="SecondAction" name="UpdateCustomer" method="post" id="UpdateCustomer" onsubmit="return isValid(window.document.UpdateCustomer);">
+                <table border="1" align="center">
+                    <tr>
+                        <td>CustomerName:</td>
+                        <td>
+                            <input type="text" id="Txt1" name="CustomerName" value="@Model.CustomerName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Address" value="@Model.Address" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td>
+                            <input id="Text3" type="text" name="City" value="@Model.City" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Province:</td>
+                        <td>
+                            <input id="Text3" type="text" name="Province" value="@Model.Province" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PostalCode:</td>
+                        <td>
+                            <input id="Text4" type="text" name="PostalCode" value="@Model.PostalCode" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="UpdateCustomer" />
+                        </td>
+                        <td>
+                            <input type="reset" name="Reset" value="Reset" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message2
+
+            </form>
+
+
+        </div>
+    </main>
+</body>
+</html>

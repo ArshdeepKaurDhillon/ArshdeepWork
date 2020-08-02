@@ -1,0 +1,146 @@
+﻿@page
+@model AddCustomerModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AddCustomer</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+        function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.CustomerName.value;
+            var length = aValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('CustomerName is required')
+            }
+             var bValue = aForm.Address.value;
+            var length = bValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('Address is required')
+            }
+
+            var cValue = aForm.City.value;
+            var length = cValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('City is required')
+            }
+
+           
+
+            var dValue = aForm.Province.value;
+            var length = dValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('Province is required')
+            }
+
+             var eValue = aForm.PostalCode.value;
+            var length = eValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('PostalCode is required')
+            }
+           
+            postalCodeRegex = /^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/;
+            postalCodeRegex.Test(eValue);
+
+            return isValid;
+        }
+    </script>
+</head>
+
+
+<body>
+    <header style="font-size:large">Add Customer</header>
+    <main>
+        <div>
+            <form name="AddCustomer" method="post" id="AddCustomer" onsubmit="return isValid(window.document.AddCustomer);">
+                <table border="1" align="center">
+                    <tr>
+                        <td>CustomerName:</td>
+                        <td>
+                            <input asp-for="CustomerName" id="Text1" type="text" name="CustomerName" value="@Model.CustomerName" />
+                            <span asp-validation-for="CustomerName"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Address" value="@Model.Address" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td>
+                            <input id="Text2" type="text" name="City" value="@Model.City" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Province:</td>
+                        <td>
+                            <input id="Text3" type="text" name="Province" value="@Model.Province" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PostalCode:</td>
+                        <td>
+                            <input  id="Text2" type="text" name="PostalCode" value="@Model.PostalCode" />                          
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                        <td>
+                    <input type="reset" name="Reset" value="Reset" />
+                </td>
+              
+                </table>
+                @Model.Message
+            </form>
+        </div>
+    </main>
+    <footer>
+       
+    </footer>
+</body>
+
+
+</html>
+

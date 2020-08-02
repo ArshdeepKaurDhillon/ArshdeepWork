@@ -1,0 +1,84 @@
+﻿@page
+@model DeleteItemModel
+@{
+}
+<!DOCTYPE html>
+<head>
+    <title>Delete Item</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+         function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.ItemCode.value;
+            var length = aValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('ItemCode is required')
+            }
+            
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <header>Delete Item</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="FindItem" method="post" id="FindItem" onsubmit="return isValid(window.document.FindItem);">
+                <table border="1" align="center">
+
+                    <tr>
+                        <td>Item Code:</td>
+                        <td>
+                            <input  id="Text2" type="text" name="ItemCode" value="@Model.ItemCode" />
+                          
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindItem" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+
+            </form>
+
+            <form asp-page-handler="SecondAction" name="DeleteItem" method="post" id="DeleteItem" onsubmit="return isValid(window.document.DeleteItem);">
+                <table border="1" align="center">
+
+                    <tr>
+                        <td>ItemCode:</td>
+                        <td>
+                            <input id="Text2" type="text" name="ItemCode" value="@Model.ItemCode" />
+                        </td>
+                    <tr>
+                        <td>Flag:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Flag" value="Deleted" />
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td>
+                            <input type="submit" name="DeleteItem" />
+                        </td>
+                        <td>
+                            <input type="reset" name="Reset" value="Reset" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message2
+
+            </form>
+        </div>
+    </main>
+</body>

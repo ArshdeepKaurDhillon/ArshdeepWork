@@ -1,0 +1,125 @@
+﻿@page
+@model UpdateItemModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Item</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+              function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.ItemCode.value;
+            var length = aValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('ItemCode is required')
+            }
+             var bValue = aForm.Description.value;
+            var length = bValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('Description is required')
+            }
+
+            var cValue = aForm.UnitPrice.value;
+            var length = cValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('UnitPrice is required')
+            }
+
+           
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <header>Update Item</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="FindItem" method="post" id="FindItem" onsubmit="return isValid(window.document.FindItem);">
+                <table border="1" align="center" >
+
+                    <tr>
+                        <td>ItemCode:</td>
+                        <td>
+                            <input id="Text2" type="text" name="ItemCode" value="@Model.ItemCode" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindItem" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+
+            </form>
+
+            <form asp-page-handler="SecondAction" name="UpdateItem" method="post" id="UpdateItem" onsubmit="return isValid(window.document.UpdateItem);">
+                <table border="1" align="center">
+
+                    <tr>
+                        <td>ItemCode</td>
+                        <td>
+                            <input  type="text" id="Text1" name="ItemCode" value="@Model.ItemCode" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Description" value="@Model.Description" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Quantity" value="@Model.Quantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>UnitPrice:</td>
+                        <td>
+                            <input id="Text3" type="text" name="UnitPrice" value="@Model.UnitPrice" />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="UpdateItem" />
+                        </td>
+                        <td>
+                            <input type="reset" name="Reset" value="Reset" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message2
+
+            </form>
+
+
+        </div>
+    </main>
+</body>
+</html>

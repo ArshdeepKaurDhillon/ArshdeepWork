@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    <script>
+            //script from layout
+    </script>
+
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <header>
+        <h2>WELCOME</h2>
+    </header>
+   
+
+    <nav>
+        @*<ul>
+
+            <li>  <a href="http://localhost:51088/AddItem">AddItem</a></li>
+            <li>  <a href="http://localhost:51088/UpdateItem">UpdateItem</a></li>
+            <li>  <a href="http://localhost:51088/DeleteItem">DeleteItem</a> </li>
+            <li> <a href="http://localhost:51088/AddCustomer">AddCustomer</a></li>
+            <li> <a href="http://localhost:51088/UpdateCustomer">UpdateCustomer</a></li>
+            <li> <a href="http://localhost:51088/DeleteCustomer">DeleteCustomer</a></li>
+            <li><a href="http://localhost:51088/ProcessSale">ProcessSale</a></li>
+
+        </ul>*@
+
+
+
+        <a href="http://localhost:51088/AddItem">AddItem</a><p>
+            <a href="http://localhost:51088/UpdateItem">UpdateItem</a>
+        <p>
+            <a href="http://localhost:51088/DeleteItem">DeleteItem</a>
+        <p>
+            <a href="http://localhost:51088/AddCustomer">AddCustomer</a>
+        <p>
+            <a href="http://localhost:51088/UpdateCustomer">UpdateCustomer</a>
+        <p>
+            <a href="http://localhost:51088/DeleteCustomer">DeleteCustomer</a>
+        <p>
+            <a href="http://localhost:51088/ProcessSale">ProcessSale</a>
+        <p>
+    </nav>
+     
+        <main>
+
+            @RenderBody()
+        </main>
+
+        <footer>
+
+            @if (IsSectionDefined("footer"))
+            {
+                @RenderSection("footer")
+            }
+            else
+            {
+                <table>
+                    <tr>
+                        <td>ABCHardware</td>
+                    </tr>
+                </table>
+            }
+        </footer>
+
+</body>
+</html>
+

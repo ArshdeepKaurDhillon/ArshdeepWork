@@ -1,0 +1,76 @@
+﻿@page
+@model DeleteCustomerModel
+@{
+}
+<!DOCTYPE html>
+<head>
+    <title>Delete Customer</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+          function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.CustomerName.value;
+            var length = aValue.length;
+
+            if (length > 0)
+            {
+                isValid = true;
+            }
+            else
+            {
+                alert('CustomerName is required')
+            }
+            
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <header>Delete Customer</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="FindCustomer" method="post" id="FindCustomer" onsubmit="return isValid(window.document.FindCustomer);">
+                <table border="1" align="center">
+
+                    <tr>
+                        <td>Customer Name:</td>
+                        <td>
+                            <input id="Text2" type="text" name="CustomerName" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindCustomer" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+
+            </form>
+
+            <form asp-page-handler="SecondAction" name="DeleteCustomer" method="post" id="DeleteCustomer" onsubmit="return isValid(window.document.DeleteCustomer);">
+                <table border="1" align="center">
+
+                    <tr>
+                        <td>CustomerName:</td>
+                        <td>
+                            <input id="Text2" type="text" name="CustomerName" value="@Model.CustomerName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="DeleteCustomer" />
+                        </td>
+                        <td>
+                            <input type="reset" name="Reset" value="Reset" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message2
+
+            </form>
+        </div>
+    </main>
+</body>
