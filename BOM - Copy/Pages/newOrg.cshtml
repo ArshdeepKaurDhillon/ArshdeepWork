@@ -1,0 +1,417 @@
+﻿@page
+@model BOM.Pages.newOrgModel
+@{
+}
+@section style
+{
+    <style></style>
+}
+
+@section script
+{
+    <script>
+
+        function HandleSelect(OrganizationForm)
+        {
+            OrganizationForm.preventDefault();
+        }
+
+        $(document).ready(function ()
+        {
+            $("#btnSearchOrganization").click(showModal);
+        });
+
+        function lookupOrganization(e)
+        {
+            e.preventDefault();
+            e.submit();
+        }
+
+        function showModal(e)
+        {
+            $("#exampleModal").modal.show();
+            e.preventDefault();
+            e.submit();
+        }
+
+         function isValid(aForm)
+         {
+            OrganizationForm.preventDefault();
+
+            var isValid = false;
+
+             var aValue = aForm.OrganizationName.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('OrganizationName is required')
+               }
+             return isValid;
+
+         }
+
+
+    </script>
+}
+
+<head>
+    <title>Organization</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+<form name="OrganizationForm" method="post" onsubmit="return isValid(window.document.OrganizationForm);">
+    <div class="form-inline">
+
+        <div class="input-group">
+            <label class="formLabel" for="CustomerID">CustomerID</label>
+            <input type="text" name="CustomerID" asp-for="CustomerID" CssClass="form-control form-control-sm" style="width:185px;" AutoPostBack="true" value="@Model.CustomerID" />
+        </div>
+        
+        <button class="btn btn-outline-primary btn-sm" asp-page-handler="SearchByID" type="submit">SearchCustomers</button>
+    </div>
+
+
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------
+-- Organization Lookup Form
+-------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            @*<label class="input-group-text" for="OrganizationLookupName">*@
+            <i class="fa fa-search" data-toggle="modal" data-target="#exampleModal">SearchByLocation</i>
+            @*</label>*@
+
+            <select class="custom-select custom-select-sm" name="OrganizationLookupName" data-toggle="tooltip" title="Select an Organization" style="width:310px;">
+
+                <option value=""></option>
+
+                @if (Model.ActiveOrganizations.Count > 0)
+                {
+                    @foreach (var OrganizationLookupName in Model.ActiveOrganizations)
+                    {
+                        <option value="@OrganizationLookupName">@OrganizationLookupName</option>
+                    }
+                }
+
+            </select>
+            <button class="btn btn-outline-primary btn-sm" asp-page-handler="OrganizationLookup" type="submit">Search</button>
+        </div>
+    </div>
+
+<br />
+
+<!-------------------------------------------------------------------------------------------------------------------------------
+-- Modal
+-------------------------------------------------------------------------------------------------------------------------------->
+@*<button type="button" class="fa fa-search" data-toggle="modal" data-target="#exampleModal">
+        SearchOrganizationByLocation
+    </button>*@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h class="modal-title" id="exampleModalLabel">Search Customer By Location:</h>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+               
+                    <div>
+                        <label class="formLabel" for="CountryName">Country</label>
+                        <select class="custom-select custom-select-sm" name="CountryNameSearch" id="CountryNameSearch" style="width:200px">
+                            @foreach (var countryName in Model.CountryCollection)
+                            {
+                                <option value="@countryName.CountryCode">@countryName.CountryName</option>
+                            }
+                        </select>
+                        <label class="formLabel" for="Region">Region / Province</label>
+
+                        <select class="custom-select custom-select-sm" name="RegionSearch" style="width:200px">
+
+                            @foreach (var regionName in Model.RegionCollection)
+                            {
+                                <option value="@regionName.RegionCode">@regionName.RegionName</option>
+                            }
+
+                        </select>
+                        <label class="formLabel" for="PostalCode">Postal / Zip Code</label>
+                        <input class="form-control form-control-sm" name="PostalCodeSearch" type="text" />
+                        <button class="btn btn-outline-secondary " type="submit">SearchByLocation</button>
+
+                        <table class="table table-striped table-hover table-sm" style="font-size:small;border-collapse:collapse;" cellspacing="0" border="1">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">OrganizationName</th>
+
+                                </tr>
+                            </thead>
+                            @foreach (var activeCustomer in Model.ActiveCustomers)
+                            {
+                                <tr>
+                                    <td><a href="javascript:__doPostBack('ctl00$MainContent$dgvCustomerSearch$ctl03$ctl00','')">Select</a></td>
+                                    <td style="width:50px;">@activeCustomer.CustomerID</td>
+                                    <td style="width:200px;">@activeCustomer.OrganizationName</td>
+                                </tr>
+                            }
+
+                        </table>
+
+                    </div>
+           
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" asp-page-handler="SearchByLocation" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------
+-- Organization Form
+-------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="row">
+        <div class="col">
+            <!-------------------------------------------------------------------------------------------------------------------------------
+            -- Organization Information
+            -------------------------------------------------------------------------------------------------------------------------------->
+
+            <div class="container">
+                <!-- Organization Name -->
+                <div class="form-inline">
+                    <label class="col-form-label col-form-label-sm formLabel" for="OrganizationName">Organization Name:</label>
+                    <input class="form-control form-control-sm" name="OrganizationName" asp-for="OrganizationName" style="width:200px;" type="text" value="@Model.OrganizationName" />
+                </div>
+
+                <!-- Organization Type -->
+                <div class="form-inline">
+                    <label class="col-form-label col-form-label-sm formLabel" for="OrganizationType">Organization Type:</label>
+                    <select class="form-control form-control-sm" style="width:200px;" name="OrganizationType" asp-for="OrganizationType" id="OrganizationType">
+                        @foreach (var organizationType in Model.OrganizationTypeCollection)
+                        {
+                            <option value="@organizationType.OrganizationTypeID">@organizationType.OrganizationType</option>
+                        }
+
+                    </select>
+                </div>
+
+                @*<div class="form-inline">
+                    <label class="col-form-label col-form-label-sm formLabel" for="OtherOrgType">Other Organization Type:</label>
+                    <input class="form-control form-control-sm" name="OtherOrgType" id="OtherOrgType" asp-for="OtherOrgType" style="width:200px;" type="text" value="@Model.OtherOrgType" />
+                </div>*@
+
+
+
+
+            </div>
+
+            <hr style="width:90%" />
+
+            <!-------------------------------------------------------------------------------------------------------------------------------
+            -- Contact Information
+            -------------------------------------------------------------------------------------------------------------------------------->
+
+            <label style="font-size:larger; font-weight:bold">Contact Information</label>
+            <br />
+            <br />
+            <div class="container">
+                <!-- Primary Contact -->
+                <div class="form-inline">
+                    <label class="col-form-label col-form-label-sm formLabel" for="PrimaryContact">Primary Contact:</label>
+                    <input class="form-control" name="PrimaryContact" asp-for="PrimaryContact" style="width:200px;" type="text" value="@Model.PrimaryContact" />
+                </div>
+
+                <!-- Organizational Role -->
+                <div class="form-inline">
+                    <label class="col-form-label col-form-label-sm formLabel" for="OrganizationalRole">Organizational Role:</label>
+                    <select style="width:200px" class="form-control form-control-sm" name="OrganizationRole" asp-for="OrganizationRole">
+                        @foreach (var organizationRole in Model.OrganizationRoleCollection)
+                        {
+                            <option value="@organizationRole.OrganizationRoleID">@organizationRole.OrganizationRole</option>
+                        }
+                    </select>
+
+                </div>
+
+                @*<div class="form-inline">
+                    <label class="col-form-label col-form-label-sm formLabel" for="OtherOrgRole">Other Organization Role:</label>
+                    <input class="form-control" name="OtherOrgRole" asp-for="OtherOrgRole" style="width:200px;" type="text" value="@Model.OtherOrgRole"/>
+                </div>*@
+
+                <!-- Email Address -->
+                <div class="form-inline">
+                    <label for="EmailAddress" class="formLabel">Email Address:</label>
+                    <input class="form-control" name="EmailAddress" asp-for="EmailAddress" type="text" style="width:200px;" value="@Model.EmailAddress" />
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-inline">
+                    <label class="formLabel" for="PhoneNumber">Phone Number:</label>
+                    <input class="form-control" style="width:200px;" name="PhoneNumber" asp-for="PhoneNumber" type="text" value="@Model.PhoneNumber" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <!-------------------------------------------------------------------------------------------------------------------------------
+            -- Shipping + Billing Address Input
+            -------------------------------------------------------------------------------------------------------------------------------->
+
+            <div class="container">
+
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#BillingTab">Billing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="tab" href="#ShippingTab">Shipping</a>
+                    </li>
+
+                </ul>
+
+                <br />
+
+                <div class="tab-content">
+
+                    <!-------------------------------------------------------------------------------------------------------------------------------
+                    -- Billing Tab
+                    -------------------------------------------------------------------------------------------------------------------------------->
+                    <div class="tab-pane fade show active" id="BillingTab">
+                        <!-- Street Address -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="BillingStreetAddress">Street Address</label>
+                            <input class="form-control form-control-sm" name="BillingStreetAddress" asp-for="BillingStreetAddress" style="width:200px;" value="@Model.BillingStreetAddress" type="text" />
+                        </div>
+
+                        <!-- Unit Number -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="BillingUnitNumber">Unit Number</label>
+                            <input class="form-control form-control-sm" name="BillingUnitNumber" asp-for="BillingUnitNumber" style="width:200px;" value="@Model.BillingUnitNumber" type="text" />
+                        </div>
+
+                        <!-- Country -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="BillingCountryNames">Country</label>
+                            <select class="custom-select custom-select-sm" name="BillingCountryName" asp-for="BillingCountryName" style="width:200px">
+                                @foreach (var countryName in Model.CountryCollection)
+                                {
+                                    <option value="@countryName.CountryCode">@countryName.CountryName</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Region / Province -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="BillingRegion">Region / Province</label>
+
+                            <select class="custom-select custom-select-sm" name="BillingRegionName" asp-for="BillingRegionName" style="width:200px">
+
+                                @foreach (var regionName in Model.RegionCollection)
+                                {
+                                    <option value="@regionName.RegionCode">@regionName.RegionName</option>
+                                }
+
+                            </select>
+
+                        </div>
+
+                        <!-- City -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="BillingCity">City</label>
+                            <input class="form-control form-control-sm" name="BillingCity" style="width:200px;" asp-for="BillingCity" value="@Model.BillingCity" type="text" />
+                        </div>
+
+                        <!-- Postal / Zip Code -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="BillingPostalCode">Postal / Zip Code</label>
+                            <input class="form-control form-control-sm" name="BillingPostalCode" style="width:200px;" asp-for="BillingPostalCode" value="@Model.BillingPostalCode" type="text" />
+                        </div>
+                    </div>
+
+
+                    <!-------------------------------------------------------------------------------------------------------------------------------
+                    -- Shipping Tab
+                    -------------------------------------------------------------------------------------------------------------------------------->
+                    <div class="tab-pane fade" id="ShippingTab">
+                        <!-- Street Address -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="ShippingStreetAddress">Street Address</label>
+                            <input class="form-control form-control-sm" name="ShippingStreetAddress" asp-for="ShippingStreetAddress" style="width:200px;" value="@Model.ShippingStreetAddress" type="text" />
+                        </div>
+
+                        <!-- Unit Number -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="ShippingUnitNumber">Unit Number</label>
+                            <input class="form-control form-control-sm" name="ShippingUnitNumber" asp-for="ShippingUnitNumber" style="width:200px;" value="@Model.ShippingUnitNumber" type="text" />
+                        </div>
+
+                        <!-- Country -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="ShippingCountryName">Country</label>
+                            <select class="custom-select custom-select-sm" name="ShippingCountryName" asp-for="ShippingCountryName" style="width:200px">
+                                @foreach (var countryName in Model.CountryCollection)
+                                {
+                                    <option value="@countryName.CountryCode">@countryName.CountryName</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Region / Province -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="ShippingRegion">Region / Province</label>
+                            @*//<input class="form-control form-control-sm" name="ShippingRegion" style="width:200px;" value="@Model.ShippingRegionName" type="text" />*@
+                            <select class="custom-select custom-select-sm" name="ShippingRegionName" asp-for="ShippingRegionName" style="width:200px">
+
+                                @foreach (var regionName in Model.RegionCollection)
+                                {
+                                    <option value="@regionName.RegionCode">@regionName.RegionName</option>
+                                }
+
+                            </select>
+
+                        </div>
+
+                        <!-- City -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="ShippingCity">City</label>
+                            <input class="form-control form-control-sm" name="ShippingCity" asp-for="ShippingCity" style="width:200px;" value="@Model.ShippingCity" type="text" />
+                        </div>
+
+                        <!-- Postal / Zip Code -->
+                        <div class="form-inline">
+                            <label class="formLabel" for="ShippingPostalCode">Postal / Zip Code</label>
+                            <input class="form-control form-control-sm" name="ShippingPostalCode" asp-for="ShippingPostalCode" style="width:200px;" value="@Model.ShippingPostalCode" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Buttons -->
+    <br />
+    <div style="clear:both">
+        <hr />
+        <div class="form-group">
+            <button class="btn btn-outline-success" asp-page-handler="OrganizationForm" type="submit">Add Organization</button>
+            <button class="btn btn-outline-danger" asp-page-handler="Modify" type="submit">Save Changes</button>
+            <button class="btn btn-outline-primary" type="reset">Reset Form</button>
+
+        </div>
+    </div>
+    @Model.Message
+</form>
