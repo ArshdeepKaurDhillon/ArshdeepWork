@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+
+
+    <script src="~/libraries/jquery/jquery.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/libraries/bootstrap-4.3.1-dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+    <script src="~/libraries/bootstrap-4.3.1-dist/js/bootstrap.js" type="text/javascript"></script>
+    <script src="~/libraries/bootstrap-4.3.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+
+    <link rel="stylesheet" href="~/css/AStyleSheet.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap-4.3.1-dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap-4.3.1-dist/js/bootstrap.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script>
+                                    //script from layout
+    </script>
+
+    @if (IsSectionDefined("style"))
+    {
+        RenderSection("style");
+    }
+
+    <!-- Controller-Specific Scripting -->
+    @if (IsSectionDefined("script"))
+    {
+        RenderSection("script");
+    }
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <!-- Navbar Label -->
+            <a class="navbar-brand" style="color:white" href="~/">ClubBaistGolfSystem</a>
+
+            <!-- Navbar Button for Smaller Screens -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="BooksTeeTimeGold">BooksTeeTimeGold</a>
+                        <a class="nav-link" href="BooksTeeTimeSilver">BooksTeeTimeSilver</a>
+                        <a class="nav-link" href="BooksTeeTimeBronze">BooksTeeTimeBronze</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ModifiesTeeTime">ModifYTeeTime</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="SubmitStandingTeeTimeRequest">SubmitStandingTeeTimeRequest</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="CancelsStandingTeeTimeRequest">CancelStandingTeeTimeRequest</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="RecordsMembershipApplication">RecordMembershipApplication</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ReviewsMembershipApplication">ReviewMembershipApplication</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ViewsMemberAccount">ViewMemberAccount</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="RecordsPlayerScores">RecordsPlayerScores</a>
+                        <a class="nav-link" href="ViewsPlayerHandicap">ViewsPlayerHandicap</a>
+                    </li>
+                    
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    <main>
+        <div class="container">
+           
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer>
+
+        @if (IsSectionDefined("footer"))
+        {
+            @RenderSection("footer")
+        }
+        else
+        {
+            <table>
+                <tr>
+                    <td>ClubBaistGolfSystem</td>
+                </tr>
+            </table>
+        }
+    </footer>
+
+</body>
+</html>

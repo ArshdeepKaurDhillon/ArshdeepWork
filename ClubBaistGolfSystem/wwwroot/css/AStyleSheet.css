@@ -1,0 +1,70 @@
+﻿
+
+/***************************************************************
+ * Standard Page Elements
+ */
+table, th, td {
+    border: 1px solid black;
+} 
+
+header, footer {
+    background-color: teal;
+    color: white !important;
+    padding: 0px;
+}
+
+main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*footer {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}*/
+
+hr {
+    width: 90%;
+}
+
+/*input {
+    width: 200px;
+}*/
+
+
+label {
+    display: inline-block;
+    font-weight: bold;
+    width: 150px;
+}
+
+/***************************************************************
+ * Classes
+ */
+
+.headerLabel {
+    font-size: medium;
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+
+.formTab {
+    color: black !important;
+}
+
+.formLabel {
+    display: inline-block;
+    font-weight: bold;
+    width: 150px;
+}
+
+
+
+header .nav-link {
+    color: white !important;
+}
+
+
+main .nav-link {
+    color: black !important;
+}

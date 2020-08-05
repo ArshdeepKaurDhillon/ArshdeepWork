@@ -1,0 +1,183 @@
+﻿@page
+@model BooksTeeTimeGoldModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BooksTeeTimeGold</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+        function isValid(aForm)
+         {
+            var isValid = false;
+
+             var aValue = aForm.Date.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Date is required')
+               }
+
+              return isValid;
+         }
+
+        function checkValid(aForm)
+        {
+            
+             var aValue = aForm.Date.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Date is required')
+               }
+
+              var bValue = aForm.Time.value
+              var blength = bValue.length;
+               if (blength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Time is required')
+               }
+
+              var cValue = aForm.PlayerFirstName.value
+              var clength = cValue.length;
+               if (clength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Player FirstName is required')
+               }
+
+             return isValid;
+         }
+    </script>
+</head>
+
+<body>
+    <header>Book Tee Time Gold</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="ViewTeeSheet" method="post" id="ViewTeeSheet" onsubmit="return isValid(window.document.ViewTeeSheet);">
+                <table >
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="ViewTeeSheet" />
+                        </td>
+                    </tr>
+                </table>
+        
+            </form>
+            @if (Model.RequestedTeeSheet.Count > 0)
+            {
+                <ol>
+                    @foreach (var TeeTime in Model.RequestedTeeSheet)
+                    {
+                        <li>@TeeTime</li>
+                    }
+                </ol>
+            }
+        </div>
+
+
+
+        <div>
+            <form asp-page-handler="SecondAction" name="BooksTeeTimeGold" onsubmit="return checkValid(window.document.BooksTeeTimeGold);"  >
+                <table>
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>Time:</td>
+                        <td>
+                            <input type="Time" name="Time" value="@Model.Time" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Number Of Carts:</td>
+                        <td>
+                            <input type="text" name="Number Of Carts" value="@Model.NumberOfCarts" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Number Of Players:</td>
+                        <td>
+                            <input type="text" name="NumberOfPlayers" value="@Model.NumberOfPlayers" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PlayerFirstName:</td>
+                        <td>
+                            <input type="text" name="PlayerFirstName" value="@Model.PlayerFirstName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PlayerLastName:</td>
+                        <td>
+                            <input type="text" name="PlayerLastName" value="@Model.PlayerLastName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input type="text" name="Phone" value="@Model.Phone" />
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="BookTeeTime" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        @Model.Message
+    </main>
+
+
+
+    <footer>
+    </footer>
+    </body>
+
+
+</html>

@@ -1,0 +1,138 @@
+﻿@page
+@model ClubBaistGolfSystem.Pages.ModifiesTeeTimeModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BooksTeeTimeSilver</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+        function isValid(aForm)
+         {
+            var isValid = false;
+
+             var aValue = aForm.Date.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Date is required')
+               }
+
+              var bValue = aForm.Time.value
+              var blength = bValue.length;
+               if (blength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Time is required')
+               }
+
+
+             return isValid;
+         }
+
+    </script>
+</head>
+
+<body>
+    <header>ModifiesTeeTime</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="ViewTeeSheet" method="post" id="ViewTeeSheet" onsubmit="return isValid(window.document.ViewTeeSheet);">
+                <table >
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time:</td>
+                        <td>
+                            <input type="time" name="Time" value="@Model.Time" />
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="ViewTeeSheet" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+            </form>
+       
+        </div>
+
+
+
+        <div>
+            <form asp-page-handler="SecondAction" name="ModifiesTeeTime" method="post" id="ModifiesTeeTime" onsubmit="return isValid(window.document.ModifiesTeeTime);">
+                <table>
+
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time:</td>
+                        <td>
+                            <input type="time" name="Time" value="@Model.Time" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PlayerFirstName:</td>
+                        <td>
+                            <input type="text" name="PlayerFirstName" value="@Model.PlayerFirstName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PlayerLastName:</td>
+                        <td>
+                            <input type="text" name="PlayerLastName" value="@Model.PlayerLastName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input type="text" name="Phone" value="@Model.Phone" />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="ModifyTeeTime" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        @Model.Message2
+    </main>
+
+
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>

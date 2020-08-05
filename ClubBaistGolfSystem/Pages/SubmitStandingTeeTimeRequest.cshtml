@@ -1,0 +1,225 @@
+﻿@page  
+@model SubmitStandingTeeTimeRequestModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SubmitStandingTeeTimeRequest</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+       function isValid(aForm)
+         {
+            var isValid = false;
+
+            var cValue = aForm.RequestedStartDate.value
+            var clength = cValue.length;
+           if (clength > 0)
+           {
+                isValid = true;
+           }
+           else
+           {
+                alert('RequestedStartDate is required')
+           }
+
+
+
+           //var aValue = aForm.MemberNumber.value
+           //  var length = aValue.length;
+           //    if (length > 0)
+           //    {
+           //     isValid = true;
+           //    }
+           //     else
+           //    {
+           //     alert('MemberNumber is required')
+           //    }
+
+
+          
+
+
+            //var dValue = aForm.RequestedTeeTime.value
+            //var dlength = dValue.length;
+            //if (dlength > 0) {
+            //    isValid = true;
+            //}
+            //else {
+            //    alert('RequestedTeeTime is required')
+            //}
+
+
+            //var eValue = aForm.MemberFirstName.value
+            //var elength = eValue.length;
+            //if (elength > 0) {
+            //    isValid = true;
+            //}
+            //else {
+            //    alert('MemberFirstName is required')
+            //}
+            return isValid;
+        }
+
+        
+        function checkValid(aForm) {
+            var isValid = false;
+
+            var cValue = aForm.RequestedStartDate.value
+            var clength = cValue.length;
+            if (clength > 0) {
+                isValid = true;
+            }
+            else {
+                alert('RequestedStartDate is required')
+            }
+
+            var aValue = aForm.MemberNumber.value
+              var length = aValue.length;
+                if (length > 0)
+                {
+                 isValid = true;
+                }
+                 else
+                {
+                 alert('MemberNumber is required')
+                }
+
+
+            var dValue = aForm.RequestedTeeTime.value
+            var dlength = dValue.length;
+            if (dlength > 0) {
+                isValid = true;
+            }
+            else {
+                alert('RequestedTeeTime is required')
+            }
+
+            return checkValid;
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <header>Submit Standing Tee Time Request</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="ViewStandingTeeTimes" method="post" id="StandingTeeTimeRequest" onsubmit="return isValid(window.document.ViewStandingTeeTimes);">
+                <table >
+                    <tr>
+                        <td>Requested Start Date:</td>
+                        <td>
+                            <input asp-for="RequestedStartDate" type="date" name="RequestedStartDate" value="@Model.RequestedStartDate" />
+                            <span asp-validation-for="RequestedStartDate"></span>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="ViewRequests" />
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+       
+            @if (Model.StandingTeeTimes.Count > 0)
+            {
+                <ol>
+                    @foreach (var StandingTeeTime in Model.StandingTeeTimes)
+                    {
+                        <li>@StandingTeeTime</li>
+                    }
+                </ol>
+            }
+    
+
+
+        <div>
+            <form asp-page-handler="SecondAction" name="SubmitStandingTeeTimeRequest" method="post" id="SubmitStandingTeeTimeRequest"  onsubmit="return checkValid(window.document.SubmitStandingTeeTimeRequest);">
+                <table>
+                    <tr>
+                        <td>MemberNumber:</td>
+                        <td>
+                            <input type="text" name="MemberNumber" value="@Model.MemberNumber" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>MemberFirstName:</td>
+                        <td>
+                            <input type="text" name="MemberFirstName" value="@Model.MemberFirstName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>MemberLastName:</td>
+                        <td>
+                            <input type="text" name="MemberLastName" value="@Model.MemberLastName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>DayOfWeek:</td>
+                        <td>
+                            <input type="text" name="DayOfWeek" value="@Model.DayOfWeek" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>RequestedTeeTime:</td>
+                        <td>
+                            <input asp-for="RequestedTeeTime" type="time" name="RequestedTeeTime" value="@Model.RequestedTeeTime" />
+                            <span asp-validation-for="RequestedTeeTime"></span>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>RequestedStartDate:</td>
+                        <td>
+                            <input asp-for="RequestedStartDate" type="date" name="RequestedStartDate" value="@Model.RequestedStartDate" />
+                            <span asp-validation-for="RequestedStartDate"></span>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>RequestedEndDate:</td>
+                        <td>
+                            <input asp-for="RequestedEndDate" type="date" name="RequestedEndDate" value="@Model.RequestedEndDate" />
+                            <span asp-validation-for="RequestedEndDate"></span>
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="SubmitRequest" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        @Model.Message
+    </main>
+
+
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>

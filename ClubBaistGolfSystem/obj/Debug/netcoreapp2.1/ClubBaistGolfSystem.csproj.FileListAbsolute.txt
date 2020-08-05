@@ -1,0 +1,15 @@
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.csprojAssemblyReference.cache
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.AssemblyInfoInputs.cache
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.AssemblyInfo.cs
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.dll
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.pdb
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\ClubBaistGolfSystem.deps.json
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\ClubBaistGolfSystem.runtimeconfig.json
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\ClubBaistGolfSystem.runtimeconfig.dev.json
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\ClubBaistGolfSystem.dll
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\ClubBaistGolfSystem.pdb
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.csproj.CoreCompileInputs.cache
+C:\Users\ArshRavi\source\repos\ClubBaistGolfSystem\obj\Debug\netcoreapp2.1\ClubBaistGolfSystem.genruntimeconfig.cache

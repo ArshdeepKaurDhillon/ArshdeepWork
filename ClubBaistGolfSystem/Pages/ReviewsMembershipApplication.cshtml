@@ -1,0 +1,220 @@
+﻿@page
+@model ClubBaistGolfSystem.Pages.ReviewsMembershipApplicationModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ReviewsMembershipApplication</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        function isValid(aForm)
+        {
+            var isValid = false;
+
+            var aValue = aForm.Status.value
+            var length = aValue.length;
+            if (length > 0) {
+                isValid = true;
+            }
+            else
+            {
+                alert('Status is required')
+            }
+            return isValid;
+        }
+
+         function isValidReview(aForm)
+         {
+            var bValue = aForm.MemberApplicationNumber.value
+            var blength = bValue.length;
+            if (blength > 0) {
+                isValid = true;
+            }
+            else
+            {
+                alert('MemberApplicationNumber is required')
+            }
+             var cValue = aForm.Description.value
+            var clength = cValue.length;
+            if (clength > 0) {
+                isValid = true;
+            }
+            else {
+                alert('Description is required')
+            }
+
+
+            return isValid;
+         }
+    </script>
+</head>
+
+<body>
+    <header>ReviewsMembershipApplication</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="ViewApplications" method="post" id="ViewApplications" onsubmit="return isValid(window.document.ViewApplications);">
+                <table >
+                    <tr>
+                        <td>Status:</td>
+                        <td>
+                            <select class="custom-select custom-select-sm" name="Status" style="width:150px;">
+                                <option value="On-hold">On-hold</option>
+                                <option value="Accepted">Accepted</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+            </form>
+            @if (Model.RequestedApplications.Count > 0)
+            {
+                <ol>
+                    @foreach (var OnHoldApplications in Model.RequestedApplications)
+                    {
+                        <li>@OnHoldApplications</li>
+                    }
+                </ol>
+            }
+        </div>
+
+
+
+        <div>
+            <form asp-page-handler="SecondAction" name="ModifyMembershipApplication" method="post" id="ModifyMembershipApplication" onsubmit="return isValidReview(window.document.ModifyMembershipApplication);">
+                <table>
+                    <tr>
+                        <td>MemberApplicationNumber:</td>
+                        <td>
+                            <input type="text" name="MemberApplicationNumber" value="@Model.MemberApplicationNumber" />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>FirstName:</td>
+                        <td>
+                            <input type="text" name="FirstName" value="@Model.FirstName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>LastName:</td>
+                        <td>
+                            <input type="text" name="LastName" value="@Model.LastName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input type="text" name="Address" value="@Model.Address" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PostalCode:</td>
+                        <td>
+                            <input type="text" name="PostalCode" value="@Model.PostalCode" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input type="text" name="Phone" value="@Model.Phone" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input type="text" name="Email" value="@Model.Email" />
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>Status:</td>
+                        <td>
+                            <select class="custom-select custom-select-sm" name="Status" style="width:150px;">
+                                <option value="On-hold">On-hold</option>
+                                <option value="Accepted">Accepted</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MemberType:</td>
+                        <td>
+                            <select class="custom-select custom-select-sm" name="MemberType" style="width:150px;">
+                                <option value="Shareholder">Shareholder</option>
+                                <option value="Non-Shareholder">Non-Shareholder</option>
+                            </select>
+                        </td>
+                    </tr>
+                 
+                    <tr>
+                        <td>Balance:</td>
+                        <td>
+                            <input type="text" name="Balance" value="@Model.Balance" />
+                        </td>
+                    </tr>
+                  
+                    <tr>
+                        <td>Amount:</td>
+                        <td>
+                            <input type="text" name="Amount" value="@Model.Amount" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ActivityDate:</td>
+                        <td>
+                            <input type="date" name="ActivityDate" value="@Model.ActivityDate" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PostedDate:</td>
+                        <td>
+                            <input type="date" name="PostedDate" value="@Model.PostedDate" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <input type="text" name="Description" value="@Model.Description" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        @Model.Message2
+        <br/>
+
+       
+
+    </main>
+
+
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>

@@ -1,0 +1,93 @@
+﻿@page
+@model ClubBaistGolfSystem.Pages.CancelsStandingTeeTimeRequestModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SubmitStandingTeeTimeRequest</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        function isValid(aForm)
+         {
+            var isValid = false;
+
+             var aValue = aForm.MemberNumber.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('MemberNumber is required')
+               }
+
+              return isValid;
+         }
+    </script>
+</head>
+
+<body>
+    <header>Cancel Standing Tee Time Request</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="ViewStandingTeeTimes" method="post" id="ViewStandingTeeTimes" onsubmit="return isValid(window.document.ViewStandingTeeTimes);">
+                <table >
+                    <tr>
+                        <td>MemberNumber:</td>
+                        <td>
+                            <input asp-for="MemberNumber" type="number" name="MemberNumber" value="@Model.MemberNumber" />
+                            <span asp-validation-for="MemberNumber"></span>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindStandingTeeTime" value="FindStandingTeeTime" />
+                        </td>
+                        <td>
+                            <input type="reset" name="Reset" value="Reset" />
+                        </td>
+                    </tr>
+                </table>
+
+                @Model.Message1
+            </form>
+        </div>
+
+
+       
+        
+
+
+
+        <div>
+            <form asp-page-handler="SecondAction" name="CancelsStandingTeeTimeRequest" method="post" id="CancelsStandingTeeTimeRequest" onsubmit="return isValid(window.document.CancelsStandingTeeTimeRequest);">
+                <table>  
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="CancelsStandingTeeTimeRequest" value="CancelRequest" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        @Model.Message2
+    </main>
+
+
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>

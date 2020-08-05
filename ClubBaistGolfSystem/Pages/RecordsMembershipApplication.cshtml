@@ -1,0 +1,211 @@
+﻿@page
+@model ClubBaistGolfSystem.Pages.RecordsMembershipApplicationModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Records Membership Application</title>
+    <meta charset="utf-8" />
+  
+    <script type="text/javascript">
+
+
+        function isValid(aForm)
+        {
+            var isValid = false;
+
+             var aValue = aForm.FirstName.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('FirstName is required')
+               }
+
+              var bValue = aForm.Status.value
+              var blength = bValue.length;
+               if (blength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Status is required')
+            }
+
+            if ((bValue = 'On-Hold') || (bValue = 'Accepted'))
+               
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Status can be On-hold or Accepted')
+                }
+
+            
+
+              var cValue = aForm.Phone.value
+              var clength = bValue.length;
+               if (blength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Phone is required')
+               }
+
+             
+            var phoneno = /^([0-9]{10})$/;
+            if ((aForm.Phone.value.match(phoneno)))
+            {
+                isValid = true;
+            }  
+                      
+                        
+            else
+            {
+            alert("Enter 10 digits for Phone");
+                        
+            }
+
+             return isValid;
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <header>Records Membership Application</header>
+    <main>
+
+        <div>
+            <form name="RecordsMembershipApplication" method="post" id="RecordsMembershipApplication" onsubmit="return isValid(window.document.RecordsMembershipApplication);" >
+                <table >
+                
+                    <tr>
+                        <td>FirstName:</td>
+                        <td>
+                            <input type="text" name="FirstName" value="@Model.FirstName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LastName:</td>
+                        <td>
+                            <input type="text" name="LastName" value="@Model.LastName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input type="text" name="Address" value="@Model.Address" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PostalCode:</td>
+                        <td>
+                            <input type="text" name="PostalCode" value="@Model.PostalCode" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input type="text" name="Phone" value="@Model.Phone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input type="text" name="Email" value="@Model.Email" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>DateOfBirth:</td>
+                        <td>
+                            <input type="date" name="DateOfBirth" value="@Model.DateOfBirth" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Occupation:</td>
+                        <td>
+                            <input type="text" name="Occupation" value="@Model.Occupation" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CompanyName:</td>
+                        <td>
+                            <input type="text" name="CompanyName" value="@Model.CompanyName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CompanyAddress:</td>
+                        <td>
+                            <input type="text" name="CompanyAddress" value="@Model.CompanyAddress" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CompanyPostalCode:</td>
+                        <td>
+                            <input type="text" name="CompanyPostalCode" value="@Model.CompanyPostalCode" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CompanyPhone:</td>
+                        <td>
+                            <input type="text" name="CompanyPhone" value="@Model.CompanyPhone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ShareholderName:</td>
+                        <td>
+                            <input type="text" name="ShareholderName" value="@Model.ShareholderName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Status:</td>
+                        <td>
+                            <select class="custom-select custom-select-sm" name="Status" style="width:150px;">
+                                <option value="On-hold">On-hold</option>
+                                <option value="Accepted">Accepted</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="RecordApplication" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        @Model.Message
+    </main>
+
+
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>

@@ -1,0 +1,193 @@
+﻿@page
+@model BooksTeeTimeModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BooksTeeTime</title>
+    <meta charset="utf-8" />   
+        <script type="text/javascript">
+            function isValid(aForm)
+            {
+                var isValid = false;
+
+                var aValue = aForm.Time.value;
+                if (aValue > "3:00 pm" || aValue < "5:30 pm")
+                {
+                    alert('Value should be < 3:00 pm or >5:30 pm')
+
+                }
+                else
+                {
+                    isValid = true;
+                }
+            }
+        </script>
+</head>
+
+<body>
+    <header>Book Tee Time Gold</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="ViewTeeSheet" method="post" id="BooksTeeTime">
+                <table border="1" align="center">
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message
+            </form>
+           
+            @if(Model.RequestedTeeSheet.Count>0)
+            {
+                <ol>
+                    @foreach(var TeeTime in Model.RequestedTeeSheet)
+                    {
+                        <li>@TeeTime</li>
+                    }
+                </ol>
+            }
+
+        </div>
+
+
+
+        <div>
+            <form asp-page-handler="SecondAction" name="BooksTeeTime"  method="post" id="BooksTeeTime" >
+                <table border="1" align="center">
+                    <tr>
+                        <td>Date:</td>
+                        <td>
+                            <input type="date" name="Date" value="@Model.Date" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Time:</td>
+                        <td>
+                            <input type="time" name="Time" value="@Model.Time" />
+                        </td>
+                    </tr>
+
+                  
+                    <tr>
+                        <td>
+                            Time:
+                        </td>
+                        <td>
+                            <select name="ASelectElement" id="ASelectElement" size="1">
+                                <option>Make a selection: (hr)</option>
+                                <option value="1">8</option>
+                                <option value="2">9</option>
+                                <option value="3">10</option>
+                                <option value="4">11</option>
+                                <option value="5">12</option>
+                                <option value="6">1</option>
+                                <option value="7">2</option>
+                                <option value="8">3</option>
+                                <option value="9">4</option>
+                                <option value="10">5</option>
+                                <option value="11">6</option>
+                                <option value="12">7</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <select name="BSelectElement" id="BSelectElement" size="1">
+                                <option>Make a selection: (min)</option>
+                                <option value="1">00</option>
+                                <option value="2">07</option>
+                                <option value="3">15</option>
+                                <option value="4">22</option>
+                                <option value="5">30</option>
+                                <option value="6">37</option>
+                                <option value="7">45</option>
+                                <option value="8">52</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <select name="CSelectElement" id="CSelectElement" size="1">
+                                <option>Make a selection: (am/pm)</option>
+                                <option value="1">am</option>
+                                <option value="2">pm</option>
+
+
+                            </select>
+                        </td>
+
+                    </tr>
+
+                    @*<tr>
+                        <td>Time:</td>
+                        <td>
+                            <input type="Time" name="Time" value="@Model.Time" />
+                        </td>
+                    </tr>*@
+
+
+
+                    <tr>
+                        <td>Number Of Carts:</td>
+                        <td>
+                            <input type="text" name="Number Of Carts" value="@Model.NumberOfCarts" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Number Of Players:</td>
+                        <td>
+                            <input type="text" name="NumberOfPlayers" value="@Model.NumberOfPlayers" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PlayerFirstName:</td>
+                        <td>
+                            <input type="text" name="Player1FirstName" value="@Model.PlayerFirstName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PlayerLastName:</td>
+                        <td>
+                            <input type="text" name="Player1LastName" value="@Model.PlayerLastName" />
+                        </td>
+                    </tr>
+       
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        @Model.Message
+    </main>
+   
+    
+    
+    <footer>
+      
+    </footer>
+</body>
+
+
+</html>

@@ -1,0 +1,164 @@
+﻿@page
+@model ClubBaistGolfSystem.Pages.RecordsPlayerScoresModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RecordsPlayerScores</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+
+         function isValid(aForm)
+         {
+            var isValid = false;
+
+             var aValue = aForm.MemberNumber.value
+             var length = aValue.length;
+               if (length > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('MemberNumber is required')
+               }
+
+              var bValue = aForm.Course.value
+              var blength = bValue.length;
+               if (blength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Course is required')
+               }
+
+                var cValue = aForm.Rating.value
+                var clength = cValue.length;
+               if (clength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Rating is required')
+               }
+
+               var dValue = aForm.Slope.value
+                var dlength = dValue.length;
+               if (dlength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Slope is required')
+               }
+
+             var eValue = aForm.Date.value
+                var elength = eValue.length;
+               if (elength > 0)
+               {
+                isValid = true;
+               }
+                else
+               {
+                alert('Date is required')
+               }
+
+
+             return isValid;
+         }
+
+    </script>
+</head>
+
+<body>
+    <header>Records Player Scores</header>
+    <main>
+
+        <div >
+            <form name="RecordsPlayerScores" method="post" id="RecordsPlayerScores" onsubmit="return isValid(window.document.RecordsPlayerScores);">
+
+                <div class="form-inline">
+                    <label class="formLabel">Course</label>
+                    <input class="form-control" style="width:150px;" type="text" name="Course" />
+
+                    <label class="formLabel">Date</label>
+                    <input class="form-control" style="width:150px;" type="date" name="Date" />
+
+                </div>
+                <div class="form-inline">
+                    <label>MemberNumber</label>
+                    <input class="form-control" style="width:100px;" type="text" name="MemberNumber" />
+
+                    <label class="formLabel">Rating</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Rating" />
+
+                    <label class="formLabel">Slope</label>
+                    <input class="form-control " style="width:100px;" type="text" name="Slope" />
+
+
+                </div>
+
+                <div class="form-inline">
+                    <label class="formLabel">Hole1</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole1" />
+                    <label class="formLabel">Hole2</label>
+                    <input class="form-control form-control-sm" style="width:100px;" type="text" name="Hole2" />
+                    <label class="formLabel">Hole3</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole3" />
+                    <label class="formLabel">Hole4</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole4" />
+                    <label class="formLabel">Hole5</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole5" />
+                    <label class="formLabel">Hole6</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole6" /><br />
+                    <label class="formLabel">Hole7</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole7" />
+                    <label class="formLabel">Hole8</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole8" />
+                    <label class="formLabel">Hole9</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole9" />
+                    <label class="formLabel">Hole10</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole10" />
+                    <label class="formLabel">Hole11</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole11" />
+                    <label class="formLabel">Hole12</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole12" /><br />
+                    <label class="formLabel">Hole13</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole13" />
+                    <label class="formLabel">Hole14</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole14" />
+                    <label class="formLabel">Hole15</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole15" />
+                    <label class="formLabel">Hole16</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole16" />
+                    <label class="formLabel">Hole17</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole17" />
+                    <label class="formLabel">Hole18</label>
+                    <input class="form-control" style="width:100px;" type="text" name="Hole18" />
+                </div>
+
+
+                <div class="form-inline">
+                    <input type="submit" name="Submit" value="RecordsPlayerScores" />
+                </div>
+            </form>
+        </div>
+        @Model.Message
+
+      
+    </main>
+
+
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>
