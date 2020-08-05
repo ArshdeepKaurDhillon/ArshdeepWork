@@ -1,0 +1,14 @@
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\obj\Debug\netcoreapp2.1\BAIS3150Demo.csprojAssemblyReference.cache
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\obj\Debug\netcoreapp2.1\BAIS3150Demo.AssemblyInfoInputs.cache
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\obj\Debug\netcoreapp2.1\BAIS3150Demo.AssemblyInfo.cs
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\obj\Debug\netcoreapp2.1\BAIS3150Demo.dll
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\obj\Debug\netcoreapp2.1\BAIS3150Demo.pdb
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\BAIS3150Demo.deps.json
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\BAIS3150Demo.runtimeconfig.json
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\BAIS3150Demo.runtimeconfig.dev.json
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\BAIS3150Demo.dll
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\BAIS3150Demo.pdb
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\libman.json
+C:\Users\ArshRavi\source\repos\BAIS3150Demo\bin\Debug\netcoreapp2.1\Properties\launchSettings.json

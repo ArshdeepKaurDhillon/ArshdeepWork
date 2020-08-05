@@ -1,0 +1,51 @@
+﻿@page
+@model TestPageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Test Razor Page</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header>Header area</header>
+    <nav>Navigation area</nav>
+    <main>
+        Main Content area
+        <div>
+            Division area
+            <form name="TestPageForm" method="post" id="TestPageForm">
+                <table>
+
+                    <tr>
+                        <td>Field:</td>
+                        <td>
+                            <input id="Text1" type="text" name="Field" value="@Model.Field" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </main>
+    <footer>
+        @Model.Message
+        Footer area
+    </footer>
+
+</body>
+
+
+</html>
+

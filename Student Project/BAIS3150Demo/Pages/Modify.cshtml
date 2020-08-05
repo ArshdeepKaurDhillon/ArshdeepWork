@@ -1,0 +1,83 @@
+﻿@page
+@model ModifyModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modify Student</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript"></script>
+</head>
+<body>
+    <header>Modify Student</header>
+    <main>
+        <div>
+            <form asp-page-handler="FirstAction" name="FindStudent" method="post" id="FindStudent">
+                <table>
+
+                    <tr>
+                        <td>StudentId:</td>
+                        <td>
+                            <input id="Text2" type="text" name="StudentId" value="@Model.StudentId" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindStudent" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message1
+
+            </form>
+
+            <form asp-page-handler="SecondAction" name="ModifyStudent" method="post" id="DeleteStudent">
+                <table>
+
+                    <tr>
+                        <td>StudentId:</td>
+                        <td>
+                            <input id="Text2" type="text" name="StudentId" value="@Model.StudentId" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FirstId:</td>
+                        <td>
+                            <input id="Text3" type="text" name="FirstName" value="@Model.FirstName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LastName:</td>
+                        <td>
+                            <input id="Text4" type="text" name="LastName" value="@Model.LastName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input id="Text5" type="text" name="Email" value="@Model.Email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ProgramCode:</td>
+                        <td>
+                            <input id="Text6" type="text" name="ProgramCode" value="@Model.ProgramCode" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="ModifyStudent" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message2
+
+            </form>
+
+
+        </div>
+    </main>
+</body>
+</html>

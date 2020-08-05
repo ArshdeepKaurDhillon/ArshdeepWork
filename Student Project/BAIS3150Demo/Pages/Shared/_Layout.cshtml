@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="~/css/AStyle.css" />
+    <script>
+        //script from layout
+    </script>
+
+    @RenderSection("scripts", required:false)
+</head>
+<body>
+    <header>
+        Header from layout
+    </header>
+    
+    <nav>
+         Navigation from layout
+    </nav>
+    
+    <main>
+            Main from layout
+            @RenderBody()
+    </main>
+    
+    <footer>
+       
+        @if(IsSectionDefined("footer"))
+        {
+            @RenderSection("footer")
+        }
+        else
+        {
+            <table>
+                <tr>
+                    <td>Default footer from layout</td>
+                </tr>
+            </table>
+        }
+    </footer>
+    
+</body>
+</html>

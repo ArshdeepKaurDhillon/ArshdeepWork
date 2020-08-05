@@ -1,0 +1,70 @@
+﻿@page
+@model TestPage1Model
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Test Razor Page</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header>Header area</header>
+    <nav>Navigation area</nav>
+    <main>
+        Main Content area
+        <div>
+            Division area
+            <form asp-page-handler="FirstAction" name="TestPageForm1" method="post" id="TestPageForm1">
+                <table>
+
+                    <tr>
+                        <td>Field:</td>
+                        <td>
+                            <input id="Field1" type="text" name="Field1" value="@Model.Field1" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit1" value="Submit1" />
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+
+
+            <form asp-page-handler="SecondAction" name="TestPageForm2" method="post" id="TestPageForm2">
+                <table>
+
+                    <tr>
+                        <td>Field:</td>
+                        <td>
+                            <input id="Field2" type="text" name="Field2" value="@Model.Field2" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit2" value="Submit2" />
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+
+        </div>
+    </main>
+    <footer>
+        @Model.Message
+        Footer area
+    </footer>
+</body>
+
+
+</html>

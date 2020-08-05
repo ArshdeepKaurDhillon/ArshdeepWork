@@ -1,0 +1,11 @@
+C:\Users\ArshRavi\source\repos\ForDES\bin\Debug\netcoreapp2.1\ForDES.deps.json
+C:\Users\ArshRavi\source\repos\ForDES\bin\Debug\netcoreapp2.1\ForDES.runtimeconfig.json
+C:\Users\ArshRavi\source\repos\ForDES\bin\Debug\netcoreapp2.1\ForDES.runtimeconfig.dev.json
+C:\Users\ArshRavi\source\repos\ForDES\bin\Debug\netcoreapp2.1\ForDES.dll
+C:\Users\ArshRavi\source\repos\ForDES\bin\Debug\netcoreapp2.1\ForDES.pdb
+C:\Users\ArshRavi\source\repos\ForDES\obj\Debug\netcoreapp2.1\ForDES.csprojAssemblyReference.cache
+C:\Users\ArshRavi\source\repos\ForDES\obj\Debug\netcoreapp2.1\ForDES.csproj.CoreCompileInputs.cache
+C:\Users\ArshRavi\source\repos\ForDES\obj\Debug\netcoreapp2.1\ForDES.AssemblyInfoInputs.cache
+C:\Users\ArshRavi\source\repos\ForDES\obj\Debug\netcoreapp2.1\ForDES.AssemblyInfo.cs
+C:\Users\ArshRavi\source\repos\ForDES\obj\Debug\netcoreapp2.1\ForDES.dll
+C:\Users\ArshRavi\source\repos\ForDES\obj\Debug\netcoreapp2.1\ForDES.pdb

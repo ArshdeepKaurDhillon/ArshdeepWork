@@ -1,0 +1,71 @@
+﻿@page
+@model EnrollStudentModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EnrollStudent</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header>EnrollStudent</header>
+    <main>
+        <div>
+            <form name="EnrollStudent" method="post" id="EnrollStudent">
+                <table>
+
+                    <tr>
+                        <td>StudentID:</td>
+                        <td>
+                            <input id="Text2" type="text" name="StudentId" value="@Model.StudentId" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>FirstName:</td>
+                        <td>
+                            <input id="Text1" type="text" name="FirstName" value="@Model.FirstName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>LastName:</td>
+                        <td>
+                            <input id="Text2" type="text" name="LastName" value="@Model.LastName" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>email:</td>
+                        <td>
+                            <input id="Text2" type="text" name="Email" value="@Model.Email" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>ProgramCode:</td>
+                        <td>
+                            <input id="Text2" type="text" name="ProgramCode" value="@Model.ProgramCode" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="Submit" value="Submit" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+    <footer>
+        @Model.Message
+    </footer>
+</body>
+
+
+</html>

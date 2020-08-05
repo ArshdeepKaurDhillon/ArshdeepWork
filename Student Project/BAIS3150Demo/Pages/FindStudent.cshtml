@@ -1,0 +1,43 @@
+﻿@page
+@model FindStudentModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FindStudent</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header>FindStudent</header>
+    <main>
+        <div>
+            <form name="FindStudent" method="post" id="FindStudent">
+                <table>
+
+                    <tr>
+                        <td>StudentId:</td>
+                        <td>
+                            <input id="Text2" type="text" name="StudentId" value="@Model.StudentId" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindStudent" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message
+
+            </form>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>

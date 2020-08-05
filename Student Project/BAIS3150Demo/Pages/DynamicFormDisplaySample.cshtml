@@ -1,0 +1,42 @@
+﻿@page
+@model DynamicFormDisplaySampleModel
+@{
+}
+<!DOCTYPE html>
+<head>
+    <title>Dynamic Display Form Sample</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <form name="SampleForm" id="SampleForm" method="post">
+        <table>
+            <tr>
+                <td>A Field:</td>
+                <td>
+                    <input type="text" name="AField" id="AField" value="@Model.AField" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>A List:</td>
+                <td>
+                    <select name="AList" id="AList" size="2">
+                        @foreach (var SampleObject in Model.SampleObjectCollection)
+                        {
+                            <option value="@SampleObject.FirstProperty">@SampleObject.SecondProperty</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="Submit" id="Submit" value="Sumit" />
+                </td>
+            </tr>
+            <tr>
+                <td>@Model.Message</td>
+            </tr>
+        </table>
+    </form>
+</body>

@@ -1,0 +1,27 @@
+﻿@page
+@model ValidationDataAnnotationAttributesModel
+@{
+}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>Validation - Data Annotation Attributes</title>
+    <meta charset="utf-8" />
+    <!--
+    <script src="~/Libraries/jquery/jquery.js"></script>                            @*THESE LIBRARIES NEED TO BE IN THIS SAME ORDER*@
+    <script src="~/Libraries/jquery-validate/jquery.validate.js"></script>
+    <script src="~/Libraries/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+     -->
+</head>
+
+<body>
+    <form name="ValidateForm" method="post" id="ValidateForm">
+        <input asp-for="Field" />
+        <span asp-validation-for="Field"></span>                                    @*For Error message*@
+        <input type="submit" name="Submit" id="Submit" value="Submit" />
+    </form>
+</body>
+
+@Model.Message
+
+</html>

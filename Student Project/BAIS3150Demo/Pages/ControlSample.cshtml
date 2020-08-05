@@ -1,0 +1,176 @@
+﻿@page
+@model ControlSampleModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ControlSamplePage</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header>Header area</header>
+    <nav>Navigation area</nav>
+    <main>
+        Main Content area
+        <div>
+            Division area
+            <form name="ControlSampleForm" id="ControlSampleForm" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            Text Box:
+                        </td>
+
+                        <td>
+                            <input type="text" name="ATextBox" id="ATextBox" />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            Check Box:
+                        </td>
+
+                        <td>
+                            <input type="checkbox" name="CheckBoxItem1" id="CheckBoxItem1" value="yes">Item1 <br />
+                            <input type="checkbox" name="CheckBoxItem2" id="CheckBoxItem2" value="yes">Item2 <br />
+                            <input type="checkbox" name="CheckBoxItem3" id="CheckBoxItem3" value="yes">Item3 <br />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Radio Button:
+                        </td>
+
+                        <td>
+                            <input type="radio" name="ARadioButton" id="ARadioButton" value="yes">Item1 <br />
+                            <input type="radio" name="ARadioButton" id="ARadioButton" value="yes">Item2 <br />
+                            <input type="radio" name="ARadioButton" id="ARadioButton" value="yes">Item3 <br />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            Hidden Field:
+                        </td>
+
+                        <td>
+                            <input type="hidden" name="AHiddenField" id="AHiddenField" value="This is hidden" />
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            Password Box:
+                        </td>
+
+                        <td>
+                            <input type="password" name="AHiddenField" id="APasswordBox" value="APasswordBox" />
+
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            Scrolling Text Box
+                        </td>
+
+                        <td>
+                            <textarea name="ATextArea" id="ATextArea" cols="20" rows="3"></textarea>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            Select Element/Option Element -----Drop-Down List:
+                        </td>
+                        <td>
+                            <select name="ASelectElement" id="ASelectElement" size="1">
+                                <option>Make a Selection</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option2</option>
+                                <option value="3">Option3</option>
+                            </select>
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr>
+                        <td>Select Element/Option Element -----List:</td>
+                        <td>
+                            <select name="AnotherSelectElement" id="AnotherSelectElement" size="3">
+                                <option value="1">Option1</option>
+                                <option value="2">Option2</option>
+                                <option value="3">Option3</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <label>This is a label control</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>A Text Box Control Label:
+                            <input type="text" name="AnotherTextBox" id="AnotherTextBox" />
+                            </label>                    @*//Sets  the focus to the control when clicking the label*@
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <label for="AThirdTextBox">A Third Text Box Control Label:</label>         @*//This also sets the focus*@
+                            <input type="text" name="AThirdTextBox" id="AThirdTextBox" />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            Field Element/Legend Element:
+                        </td>
+
+                        <td>
+                            <fieldset name="AFieldSet" id="AFieldSet">
+                                <legend>Legend</legend>
+                                <label>Group Item 1:<input type="text" name="GroupItem1" id="GroupItem1" /></label><br />
+                                <label>Group Item 2:<input type="text" name="GroupItem2" id="GroupItem2" /></label><br />
+                                <label>Group Item 3:<input type="text" name="GroupItem3" id="GroupItem3" /></label><br />
+
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+
+        Footer area
+    </footer>
+</body>
+
+
+</html>
+

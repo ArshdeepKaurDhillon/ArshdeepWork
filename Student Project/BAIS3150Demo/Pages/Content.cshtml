@@ -1,0 +1,27 @@
+﻿@page
+@model ContentModel
+@{
+    //Layout = "_Layout"; Because in _ViewStart.cshtml we have mentioned now it is applied to all pages
+    ViewData["Title"] = "Title from content page";
+}
+
+@section scripts 
+{
+    <script>
+        //***Optional script from content page***
+    </script>
+}
+<table>
+    <tr>
+        <td>***Main Content from content page***<input type="text" name="InputField" /></td>
+    </tr>
+</table>
+
+@section footer
+{
+    <table>
+        <tr>
+            <td>*** Optional footer from content ***</td>
+        </tr>
+    </table>
+}

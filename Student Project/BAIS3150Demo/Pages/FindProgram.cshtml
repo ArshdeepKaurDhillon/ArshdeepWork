@@ -1,0 +1,54 @@
+﻿@page
+@model FindProgramModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FindProgram</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header>FindProgram</header>
+    <main>
+        <div>
+            <form name="FindProgram" method="post" id="FindStudent">
+                <table>
+
+                    <tr>
+                        <td>ProgramCode:</td>
+                        <td>
+                            <input id="Text2" type="text" name="ProgramCode" value="@Model.ProgramCode" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="FindProgram" />
+                        </td>
+                    </tr>
+                </table>
+                @Model.Message
+
+            </form>
+
+            @if (Model.EnrolledStudents.Count > 0)
+            {
+                <ol>
+                    @foreach (var EnrolledStudent in Model.EnrolledStudents)
+                    {
+                        <li>@EnrolledStudent</li>
+                    }
+                </ol>
+            }
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
